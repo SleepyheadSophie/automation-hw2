@@ -11,14 +11,14 @@ public class Address {
     private int flat;
     private int index;
 
-    public Address(AddressGenerator addressGenerator, int house, int flat, int index) {
-        Country = addressGenerator.getCountry();
-        Region = addressGenerator.getRegion();
-        City = addressGenerator.getCity();
-        Street = addressGenerator.getStreet();
-        this.house = house;
-        this.flat = flat;
-        this.index = index;
+    public Address(AddressGenerator addressGenerator) {
+        Country = addressGenerator.getRandomCountry();
+        Region = addressGenerator.getRandomRegion();
+        City = addressGenerator.getRandomCity();
+        Street = addressGenerator.getRandomStreet();
+        this.house = addressGenerator.getRandomHouse();
+        this.flat = addressGenerator.getRandomFlat();
+        this.index = addressGenerator.getRandomIndex();
     }
 
     public String getCountry() {

@@ -11,11 +11,11 @@ public class Person {
     private Gender gender;
     private int age;
     private LocalDate dateOfBirth;
-    private int inn;
+    private String inn;
     private Address address;
 
 
-    public Person(PersonGenerator personGenerator, Gender gender, int age, LocalDate dateOfBirth, int inn, Address address) {
+    public Person(PersonGenerator personGenerator, Gender gender, int age, LocalDate dateOfBirth, String inn, Address address) {
         this.firstName = personGenerator.getFirstName();
         this.middleName = personGenerator.getMiddleName();
         this.lastName = personGenerator.getLastName();
@@ -50,7 +50,7 @@ public class Person {
         return dateOfBirth;
     }
 
-    public int getInn() {
+    public String getInn() {
         return inn;
     }
 

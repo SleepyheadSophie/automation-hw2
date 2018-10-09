@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AddressGenerator {
 
@@ -15,11 +16,17 @@ public class AddressGenerator {
     private final static String CITIES_FILE_PATH = "Cities.txt";
     private final static String STREETS_FILE_PATH = "Streets.txt";
 
+    private final static int MAX_INT_VALUE = 250;
+
     Random random = new Random();
     private List<String> countriesList = new ArrayList<>();
     private List<String> regionsList = new ArrayList<>();
     private List<String> citiesList = new ArrayList<>();
     private List<String> streetsList = new ArrayList<>();
+
+    private int house;
+    private int flat;
+    private int index;
 
     public AddressGenerator() {
         try (BufferedReader countriesInput = new BufferedReader(new InputStreamReader(readFileFromResources(COUNTRIES_FILE_PATH), "UTF-8"));
@@ -33,7 +40,9 @@ public class AddressGenerator {
             readFile(streetsInput, streetsList);
         } catch (IOException e) {
             e.printStackTrace();
+
         }
+        index = ThreadLocalRandom.current().nextInt(100000, 999999);
     }
 
     private void readFile(BufferedReader file, List<String> destination) throws IOException {
@@ -50,19 +59,31 @@ public class AddressGenerator {
         return resourceAsStream;
     }
 
-    public String getCountry() {
+    public String getRandomCountry() {
         return countriesList.get(random.nextInt(countriesList.size()));
     }
 
-    public String getRegion() {
+    public String getRandomRegion() {
         return regionsList.get(random.nextInt(regionsList.size()));
     }
 
-    public String getCity() {
+    public String getRandomCity() {
         return citiesList.get(random.nextInt(citiesList.size()));
     }
 
-    public String getStreet() {
+    public String getRandomStreet() {
         return streetsList.get(random.nextInt(streetsList.size()));
+    }
+
+    public int getRandomHouse() {
+        return random.nextInt(MAX_INT_VALUE);
+    }
+
+    public int getRandomFlat() {
+        return random.nextInt(MAX_INT_VALUE);
+    }
+
+    public int getRandomIndex() {
+        return ThreadLocalRandom.current().nextInt(100000, 999999);
     }
 }
