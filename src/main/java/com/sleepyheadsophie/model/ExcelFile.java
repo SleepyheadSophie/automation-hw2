@@ -75,7 +75,7 @@ public class ExcelFile {
         addCell(row, 13, String.valueOf(address.getFlat()));
     }
 
-    public void addCell(Row row, int num, String value) {
+    private void addCell(Row row, int num, String value) {
         Cell cell = row.createCell(num);
         cell.setCellValue(value);
     }

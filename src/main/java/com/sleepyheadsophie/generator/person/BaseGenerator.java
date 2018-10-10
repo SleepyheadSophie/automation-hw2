@@ -10,12 +10,12 @@ import java.util.Random;
 
 abstract class BaseGenerator implements PersonGenerator {
 
-    Random random = new Random();
+    private Random random = new Random();
     private List<String> firstNameList = new ArrayList<>();
     private List<String> middleNameList = new ArrayList<>();
     private List<String> lastNameList = new ArrayList<>();
 
-    public BaseGenerator(String firstNamesFilePath, String middleNamesFilePath, String lastNamesFilePath) {
+    BaseGenerator(String firstNamesFilePath, String middleNamesFilePath, String lastNamesFilePath) {
         try (BufferedReader firstNameInput = new BufferedReader(new InputStreamReader(readFileFromResources(firstNamesFilePath), "UTF-8"));
              BufferedReader middleNameInput = new BufferedReader(new InputStreamReader(readFileFromResources(middleNamesFilePath), "UTF-8"));
              BufferedReader lastNameInput = new BufferedReader(new InputStreamReader(readFileFromResources(lastNamesFilePath), "UTF-8"))) {
@@ -49,7 +49,6 @@ abstract class BaseGenerator implements PersonGenerator {
 
     private InputStream readFileFromResources(String path) {
         ClassLoader classLoader = getClass().getClassLoader();
-        InputStream resourceAsStream = classLoader.getResourceAsStream(path);
-        return resourceAsStream;
+        return classLoader.getResourceAsStream(path);
     }
 }

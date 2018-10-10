@@ -1,16 +1,14 @@
-package com.sleepyheadsophie.generator.date;
+package com.sleepyheadsophie.generator.other;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class InnGenerator {
 
-    public static final int REGION_VALUE = 77;
-    public static final int INSPECTION_MIN_VALUE = 10;
-    public static final int INSPECTION_MAX_VALUE = 51;
+    private static final int REGION_VALUE = 77;
+    private static final int INSPECTION_MIN_VALUE = 10;
+    private static final int INSPECTION_MAX_VALUE = 51;
 
     public static String generateInn() {
-        Random random = new Random();
 
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(REGION_VALUE);

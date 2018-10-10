@@ -1,8 +1,8 @@
 package com.sleepyheadsophie;
 
 import com.sleepyheadsophie.generator.address.AddressGenerator;
-import com.sleepyheadsophie.generator.date.BirthAndDateGenerator;
-import com.sleepyheadsophie.generator.date.InnGenerator;
+import com.sleepyheadsophie.generator.other.BirthAndDateGenerator;
+import com.sleepyheadsophie.generator.other.InnGenerator;
 import com.sleepyheadsophie.generator.person.FactoryGenerator;
 import com.sleepyheadsophie.generator.person.PersonGenerator;
 import com.sleepyheadsophie.model.Address;

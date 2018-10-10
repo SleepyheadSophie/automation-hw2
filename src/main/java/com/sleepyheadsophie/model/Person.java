@@ -53,8 +53,4 @@ public class Person {
     public String getInn() {
         return inn;
     }
-
-    public Address getAddress() {
-        return address;
-    }
 }
